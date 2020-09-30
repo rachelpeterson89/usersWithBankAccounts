@@ -16,8 +16,7 @@ class BankAccount:
         return self
 
     def display_account_info(self):
-        print(f"Balance: ${self.balance}")
-        return self
+        return(f"Balance: ${self.balance}")
 
     def yield_interest(self):
         self.balance = self.balance * self.int_rate + self.balance
@@ -36,10 +35,17 @@ class User:
         print(f"{self.name} just transferred {amount} dollars to {other_user.name}")
         return self
 
+    def display_account_info(self):
+        print(f"Name: {self.name}, {self.account.display_account_info()}")
+        return self
+
 rachel = User("Rachel","rachelp5446@gmail.com")
 kilo = User("Kilo","kilo@dogmail.com")
 kenobi = User("Kenobi","kenobi@dogmail.com")
 
-rachel.account.deposit(500).display_account_info()
+kenobi.account.deposit(100)
+kenobi.display_account_info()
+rachel.account.deposit(500)
+rachel.display_account_info()
 rachel.transfer_money(500,kenobi)
 kilo.account.deposit(100).withdraw(50).display_account_info()
